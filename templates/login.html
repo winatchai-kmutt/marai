@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>ม้าลาย<br> ระบบจัดการหอพัก</h1> <!-- Moved header inside the container -->
+        <h2>Login</h2>
+        <form action="/login" method="post">
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <button type="submit">Log In</button>
+        </form>
+        <p>Don't have an account? <a href="/register">Sign Up</a></p>
+        <p>Forgot your password? <a href="/forget_password">Forgot Password?</a></p>
+    </div>
+</body>
+</html>

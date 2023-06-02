@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Petitions</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles_pet_page.css') }}">
+</head>
+<body>
+    <div class="navbar">
+        <ul>
+            <li><a href="#">ROOM</a></li>
+            <li><a href="#">Bill</a></li>
+            <li><a href="#">Petition</a></li>
+        </ul>
+    </div>
+    <div class="content">
+        <table>
+            <thead>
+                <tr>
+                    <th>Room</th>
+                    <th>Type</th>
+                    <th>Detail</th>
+                    <th>Status</th>
+                    <th>Edit</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for petition in petitions %}
+                <tr>
+                    <td>{{ petition.number_room }}</td>
+                    <td>{{ petition.petition_type }}</td>
+                    <td>{{ petition.petition_detail }}</td>
+                    <td>{{ petition.petition_status }}</td>
+                    <td>
+                        <form action="/petitions/update_status" method="POST">
+                            <input type="hidden" name="petition_id" value="{{ petition.id }}">
+                            <select name="new_status">
+                                <option value="Completed">Completed</option>
+                                <option value="Wait">Wait</option>
+                            </select>
+                            <button type="submit">Update</button>
+                        </form>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

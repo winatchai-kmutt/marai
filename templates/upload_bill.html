@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+<head>
+    <title>Photo Upload</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        
+    </style>
+</head>
+<body>
+    <div class="container py-5">
+        <h2 class="text-center mb-4">Upload a photo:</h2>
+        <form action="/" method="post" enctype="multipart/form-data" class="text-center">
+            <div class="form-group">
+                <label for="room">Room:</label>
+                <input type="text" id="room" name="room" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="photo">Photo:</label>
+                <input type="file" id="photo" name="photo" class="form-control-file" required>
+            </div>
+            <button type="submit" class="btn btn-primary mt-3">Upload</button>
+        </form>
+    </div>
+</body>
+</html>
